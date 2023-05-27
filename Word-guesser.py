@@ -1,3 +1,5 @@
+#This program is a basic word guesser for practicing slicing and higher level functions 
+
 import random
 
 words = ['hippo', 'jam', 'jelly', 'not', 'display', 'imagine', 'coder', 'programmer', 'python', 'bozo', 'watch']
