@@ -5,35 +5,39 @@ from tkinter import *
 from pytube import YouTube
 import os 
  
-window = Tk()
-canvas = Canvas(window, width=300, height=200)
+canvas = Tk()
+canvas = Canvas(canvas, bg="pink", width=700, height=200)
 canvas.pack()
 
-l = Label(canvas, text="Would you like to download or convert to audio: ")
+l = Label(canvas,bg="pink", text="Would you like to download or convert to audio: ")
+l.config(font=("Comic Sans", 16))
 l.pack()
-entry = tk.Entry()
-entry.pack()
-
+global p
+p = tk.Entry(bg="pink")
+p = Entry(canvas)
+p.pack()
+p.focus_set()
 def on_button():
-    if entry.get() == "download":
-        l = Label(canvas, text="Please input your video link that you would like to download")
-        l.config(font =("Courier", 14))
+    canvas.winfo_children()[2].destroy()
+    if p.get() == "download":
+        l = Label(canvas, bg="pink", text="Please input your video link that you would like to download")
+        l.config(font =("Comic sans", 14))
         l.pack()
         def download(): 
             #fix this:
-            global e
             string = e.get() 
             yt = YouTube(string)
             yt.streams.get_highest_resolution().download()
             print("Download Succsessful")
+        e = tk.Entry(bg="pink")
         e = Entry(canvas)
         e.pack()
         e.focus_set()
-        b = Button(canvas,text='okay',command=download)
+        b = Button(canvas,text='Finish',bg="pink", command=download)
         b.pack(side='bottom') 
-    elif entry.get() == "audio":
-        l = Label(canvas, text="Please input your video link that you would like to convert")
-        l.config(font =("Courier", 14))
+    elif p.get() == "audio":
+        l = Label(canvas,bg="pink", text="Please input your video link that you would like to convert")
+        l.config(font =("Comic Sans", 14))
         l.pack()
         def audio():
             global e 
@@ -45,8 +49,12 @@ def on_button():
         e = Entry(canvas)
         e.pack()
         e.focus_set()
-        b = Button(canvas,text='okay',command=audio)
+        b = Button(canvas,text='Finish', bg="pink", command=audio)
         b.pack(side='bottom') 
-button = tk.Button(canvas, text="Enter", command=on_button)
+    else:
+        l = Label(canvas, bg="pink", text="please input either 'download' or 'audio' in the box\n Please try again")
+        l.config(font=("Comic Sans", 14))
+        l.pack()
+button = tk.Button(canvas, text="Enter",bg="pink", command=on_button)
 button.pack()
 tk.mainloop()
