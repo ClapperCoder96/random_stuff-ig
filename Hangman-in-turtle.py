@@ -1,6 +1,7 @@
 """We all know that turtle is one of the worst and best python libraries there is. I kind of like it, and think it is a great
 way to improve your skill in overall coding as well as styilistic and library dependent sources. Anyways, this takes the functions of my 
-word-guesser.py file and made it into a fun interactive game for python!"""
+word-guesser.py file and made it into a fun interactive game for python! NOTE: I did this in codehs as it was a school project and must inform that to complete
+any of these turtle commands you must use 't.' before the word."""
 import random
 from time import sleep
 
