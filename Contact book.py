@@ -2,7 +2,7 @@ choose = input("Would you like to add a contact or search for one? \n(please ent
 name = ""
 num = 0
 if choose == 'add':
-	name = input("Name: ")
+	name = input("First name: ").lower()
 	num = int(input("Number:"))
 
 	with open("miniproj.txt", "a",) as f:
@@ -10,7 +10,7 @@ if choose == 'add':
 		f.write("NAME: " + name + " NUMBER: " + str(num))
 
 elif choose == "search":
-	who = input("Enter the name of the person you are looking for: ")
+	who = input("Enter the name of the person you are looking for: ").lower()
 	with open(r'miniproj.txt', 'r') as fp:
 		lines = fp.readlines()
 		for row in lines:
